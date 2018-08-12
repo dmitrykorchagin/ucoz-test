@@ -1,1 +1,1 @@
-https://dmitrykorchagin.github.io/ucoz-test/1
+https://dmitrykorchagin.github.io/ucoz-test/
