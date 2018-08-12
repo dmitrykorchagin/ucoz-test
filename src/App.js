@@ -8,8 +8,8 @@ export default () => (
   <BrowserRouter>
     <React.Fragment>
       <Switch>
-        <Redirect exact from="/" to="/1" />
-        <Route path="/:id" component={Main} />
+        <Redirect exact from="/ucoz-test/" to="/ucoz-test/1" />
+        <Route path="/ucoz-test/:id" component={Main} />
       </Switch>
     </React.Fragment>
   </BrowserRouter>

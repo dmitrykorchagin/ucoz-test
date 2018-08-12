@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "antd": "^3.8.0",
+    "lodash": "^4.17.10",
     "normalize.css": "^8.0.0",
     "react": "^16.4.2",
     "react-addons-css-transition-group": "^15.6.2",

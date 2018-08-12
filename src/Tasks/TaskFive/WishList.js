@@ -1,15 +1,20 @@
 import React from 'react';
-import { Button, List } from 'antd';
+import { List } from 'antd';
+import Wish from './Wish';
 
 class WishList extends React.Component {
   constructor() {
     super();
     this.remove = this.remove.bind(this);
+    this.complete = this.complete.bind(this);
   }
 
-  remove(wish) {
-    var value = wish.target.parentNode.querySelector('span').innerText;
+  remove(value) {
     this.props.remove(value);
+  }
+
+  complete(value) {
+    this.props.complete(value);
   }
 
   render() {
@@ -23,15 +28,7 @@ class WishList extends React.Component {
         dataSource={wishs}
         renderItem={item => (
           <List.Item key={item.index}>
-            <span>{item.value}</span>
-            <Button
-              style={{ display: 'block' }}
-              size="small"
-              type="danger"
-              onClick={this.remove}
-            >
-              X
-            </Button>
+            <Wish complete={this.complete} wish={item} />
           </List.Item>
         )}
       />

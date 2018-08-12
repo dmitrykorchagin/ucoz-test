@@ -14,16 +14,33 @@ const Title = styled.h1`
   margin-left: 20px;
   font-weight: bold;
 `;
+const Info = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+  }
+`;
 const Text = styled.p``;
 const Stack = styled.ul``;
 const StackItem = styled.li``;
-const RightInfo = styled.div`
-  display: block;
-  float: right;
+const RightInfo = styled.div``;
+const LeftInfo = styled.div`
+  margin-right: 24px;
+
+  @media (max-width: 576px) {
+    margin-right: 0px;
+  }
 `;
 const Photo = styled.img`
-  width: 200px;
-  height: 200px;
+  max-width: 200px;
+  max-height: 200px;
+
+  @media (max-width: 576px) {
+    width: 150px;
+  }
 `;
 const List = styled.ul`
   padding: 0;
@@ -58,73 +75,76 @@ class OneTask extends React.Component {
             }}
           >
             <Card>
-              <RightInfo>
-                <Photo src={photo} />
-                <List>
-                  <Contact>
-                    <Icon src={github} />
-                    <Clipboard
-                      component="a"
-                      data-clipboard-text="https://github.com/dmitrykorchagin"
-                      onSuccess={this.onSuccess}
-                    >
-                      GitHub
-                    </Clipboard>
-                  </Contact>
-                  <Contact>
-                    <Icon src={telegram} />
-                    <Clipboard
-                      component="a"
-                      data-clipboard-text="https://t.me/dkorchagin"
-                      onSuccess={this.onSuccess}
-                    >
-                      Telegram
-                    </Clipboard>
-                  </Contact>
-                  <Contact>
-                    <Icon src={skype} />
-                    <Clipboard
-                      component="a"
-                      data-clipboard-text="skype:dmitrykorchagin11"
-                      onSuccess={this.onSuccess}
-                    >
-                      Skype
-                    </Clipboard>
-                  </Contact>
-                  <Contact>
-                    <Icon src={phone} />
-                    <Clipboard
-                      component="a"
-                      data-clipboard-text="tel:+7 (911) 163 88 20"
-                      onSuccess={this.onSuccess}
-                    >
-                      +7(911)163-88-20
-                    </Clipboard>
-                  </Contact>
-                </List>
-              </RightInfo>
-
-              <Text>
-                Привет! Меня зовут Дмитрий Корчагин. Я начинающий фронтэнд
-                разработчик. Учу фронтэнд с мая 2018 года.
-              </Text>
-              <Text>
-                Стэк в этом приложении: react, react-router v4, react-clipboard,
-                styled-components, ant-design
-              </Text>
-              <Text>Также я умею:</Text>
-              <Stack>
-                <StackItem>Работать с git</StackItem>
-                <StackItem>Адаптивно верстать</StackItem>
-                <StackItem>Flexbox, bootstrap, flexbox grid </StackItem>
-                <StackItem>Немножко знаком с препроцессорами</StackItem>
-                <StackItem>Управлять пакетами в yarn, npm</StackItem>
-                <StackItem>Gulp</StackItem>
-                <StackItem>БЭМ (Наименование классов)</StackItem>
-                <StackItem>
-                  Работать с макетами в Sketch, Figma, Photoshop
-                </StackItem>
-              </Stack>
+              <Info>
+                <LeftInfo>
+                  <Text>
+                    Привет! Меня зовут Дмитрий Корчагин. Я начинающий фронтэнд
+                    разработчик. Учу фронтэнд с мая 2018 года.
+                  </Text>
+                  <Text>
+                    Стэк в этом приложении: react, react-router v4,
+                    react-clipboard, styled-components, lodash, ant-design
+                  </Text>
+                  <Text>Также я умею:</Text>
+                  <Stack>
+                    <StackItem>Работать с git</StackItem>
+                    <StackItem>Адаптивно верстать</StackItem>
+                    <StackItem>Flexbox, bootstrap, flexbox grid </StackItem>
+                    <StackItem>Немножко знаком с препроцессорами</StackItem>
+                    <StackItem>Управлять пакетами в yarn, npm</StackItem>
+                    <StackItem>Gulp</StackItem>
+                    <StackItem>БЭМ (Наименование классов)</StackItem>
+                    <StackItem>
+                      Работать с макетами в Sketch, Figma, Photoshop
+                    </StackItem>
+                  </Stack>
+                </LeftInfo>
+                <RightInfo>
+                  <Photo src={photo} />
+                  <List>
+                    <Contact>
+                      <Icon src={github} />
+                      <Clipboard
+                        component="a"
+                        data-clipboard-text="https://github.com/dmitrykorchagin"
+                        onSuccess={this.onSuccess}
+                      >
+                        GitHub
+                      </Clipboard>
+                    </Contact>
+                    <Contact>
+                      <Icon src={telegram} />
+                      <Clipboard
+                        component="a"
+                        data-clipboard-text="https://t.me/dkorchagin"
+                        onSuccess={this.onSuccess}
+                      >
+                        Telegram
+                      </Clipboard>
+                    </Contact>
+                    <Contact>
+                      <Icon src={skype} />
+                      <Clipboard
+                        component="a"
+                        data-clipboard-text="skype:dmitrykorchagin11"
+                        onSuccess={this.onSuccess}
+                      >
+                        Skype
+                      </Clipboard>
+                    </Contact>
+                    <Contact>
+                      <Icon src={phone} />
+                      <Clipboard
+                        component="a"
+                        data-clipboard-text="tel:+7 (911) 163 88 20"
+                        onSuccess={this.onSuccess}
+                      >
+                        +7(911)163-88-20
+                      </Clipboard>
+                    </Contact>
+                  </List>
+                </RightInfo>
+              </Info>
             </Card>
           </div>
         </Content>

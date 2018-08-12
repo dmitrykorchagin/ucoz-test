@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import _ from 'lodash';
 import { Layout } from 'antd';
 import AddNewWish from './AddWish';
 import WishList from './WishList';
@@ -14,19 +15,23 @@ const Title = styled.h1`
 const wishList = [
   {
     index: 1,
-    value: 'React'
+    value: 'React',
+    complete: false
   },
   {
     index: 2,
-    value: 'Redux'
+    value: 'Redux',
+    complete: false
   },
   {
     index: 3,
-    value: 'TypeScript'
+    value: 'TypeScript',
+    complete: false
   },
   {
-    index: 3,
-    value: 'Vue?'
+    index: 4,
+    value: 'Vue?',
+    complete: false
   }
 ];
 
@@ -35,23 +40,36 @@ class FiveTask extends React.Component {
     super();
     this.updateList = this.updateList.bind(this);
     this.removeWish = this.removeWish.bind(this);
-    this.state = {
-      wishs: wishList
-    };
+    this.completeWish = this.completeWish.bind(this);
+    this.state = { wishs: wishList };
   }
 
   updateList(text) {
     const updateWish = this.state.wishs;
-    updateWish.push({ index: updateWish.length + 1, value: text });
+    const complete = false;
+    updateWish.push({
+      index: updateWish.length + 1,
+      value: text,
+      complete: complete
+    });
     this.setState({ wishs: updateWish });
   }
 
   removeWish(text) {
     const updateWish = this.state.wishs;
-    updateWish.splice(updateWish.indexOf(text), 1);
+    _.remove(updateWish, wish => wish.value === text);
     this.setState({ wishs: updateWish });
   }
 
+  completeWish(text) {
+    const updateWish = this.state.wishs;
+    for (var i in updateWish) {
+      if (updateWish[i].value === text) {
+        updateWish[i].complete = updateWish[i].complete === true ? false : true;
+      }
+    }
+    this.setState({ updateWish });
+  }
   render() {
     const { wishs } = this.state;
     return (
@@ -67,8 +85,12 @@ class FiveTask extends React.Component {
               minHeight: 560
             }}
           >
-            <AddNewWish updateList={this.updateList} />
-            <WishList wishs={wishs} remove={this.removeWish} />
+            <AddNewWish value={this.state.wish} updateList={this.updateList} />
+            <WishList
+              wishs={wishs}
+              remove={this.removeWish}
+              complete={this.completeWish}
+            />
           </div>
         </Content>
       </React.Fragment>

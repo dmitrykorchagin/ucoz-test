@@ -30,7 +30,7 @@ class AddNewWish extends React.Component {
   render() {
     return (
       <Form id="myForm" onSubmit={this.onSubmit}>
-        <Input type="text" />
+        <Input type="text" placeholder="Wish..." />
         <Button
           style={{ width: '100%', marginTop: '20px' }}
           form="myForm"
